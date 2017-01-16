@@ -65,6 +65,12 @@ func theRangeKeyword() {
 }
 
 func initSimpleSlice() {
+
+	//formal way to declare a slice
+	fmt.Println("Formal way to declare a slice")
+	var simpleSlice []int
+	fmt.Println(simpleSlice)
+
 	x := make([]float64, 5)
 	fmt.Println(x) // output: [0 0 0 0 0]
 
@@ -102,6 +108,70 @@ func basicSliceOperations() {
 	fmt.Println("Copy function")
 	slice1 = []int{1, 2, 3, 4, 5}
 	slice2 = make([]int, 3) // 3 means the capacity of the underlying array of slice 2
-	copy(slice2, slice1) //only the first 3 elements of slice1 are copied
-	fmt.Println(slice2) // output: [1, 2, 3]
+	copy(slice2, slice1)    //only the first 3 elements of slice1 are copied
+	fmt.Println(slice2)     // output: [1, 2, 3]
+}
+
+func simpleMapInitAndLookup() {
+
+	fmt.Println("\nFormal way to declare a map")
+	var x map[string]int
+	fmt.Println(x)
+
+	fmt.Println("\nMaps have to be initialized (using make function) before they can be used:")
+	fmt.Println("otherwise we will get a runtime error")
+	y := make(map[string]int)
+	y["key1"] = 10
+	z := make(map[string]string)
+	z["name1"] = "Iris Duong"
+	fmt.Println(y)
+	fmt.Println(z)
+
+	fmt.Println("\nRetrieve an element using the correct key:")
+	fmt.Println(y["key1"])
+	fmt.Println(z["name1"])
+
+	fmt.Println("\nWhen an incorrect key is used:")
+	fmt.Println("If the map contains integer elements, 0 is returned")
+	fmt.Println(y["key2"])
+	fmt.Println("If the map contains string elements, an empty string is returned")
+	fmt.Println(z["name2"])
+	fmt.Println("Technically, a map returns the zero value for the value type\n",
+		"(which for strings is the empty string)")
+
+}
+
+func checkingMapLookup()  {
+	names := make(map[string]string)
+	names["name1"] = "Henry"
+	names["name2"] = "Tom"
+	names["name3"] = "Peter"
+
+	fmt.Println("\nAccessing an element of a map can return two values instead of just one")
+
+	value, ok := names["name1"]
+	fmt.Println(value,ok) //output: Henry true
+
+	value, ok = names["wrongKey"]
+	fmt.Println(value,ok) //output: empty string "", false
+
+	fmt.Println("\nA special way in Go to check if an element corresponding \n" +
+	 			"to a given key is in a map")
+
+	//this is just a closure (function)	that check if a key/value pair exists in a given map		
+	checkIfKeyExists := func(theMap map[string]string, givenKey string) {
+		if val, yes := theMap[givenKey]; yes {
+			fmt.Println("The key \"" + givenKey + "\" exits in the map with the corresponding value:", val)
+		} else {
+			fmt.Println("The key \"" + givenKey + "\" doesn't exist in the map, no corresponding value")
+		}
+	}	
+
+	checkIfKeyExists(names, "name1")
+	checkIfKeyExists(names, "wrongKey")
+}
+
+func basicMapOperations()  {
+	//https://blog.golang.org/go-maps-in-action
+	
 }
