@@ -1,8 +1,8 @@
-package main
+package basic
 
 import "fmt"
 
-func workWithString()  {
+func WorkWithString()  {
     fmt.Println(len("hello"));
     fmt.Println("hello world"[1]);
     fmt.Println("Hello, " + "World");

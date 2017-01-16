@@ -1,10 +1,10 @@
-package main
+package basic
 
 import (
 	"fmt"
 )
 
-func usingPrintf1() {
+func UsingPrintf1() {
 	name := "Mittens"
 	weight := 12
 	// Use %s to mean string.
@@ -15,14 +15,14 @@ func usingPrintf1() {
 }
 
 //the Print and Printf
-func usingPrintWithForLoop()  {
+func UsingPrintWithForLoop()  {
     for i := 0; i < 10; i++ {
         fmt.Print(i, " ");
     }
     fmt.Println();
 }
 
-func usingPrintfWithLoop() {
+func UsingPrintfWithLoop() {
 	i := 1
 	for i <= 10 {
 		fmt.Printf("%d ", i)
@@ -33,7 +33,7 @@ func usingPrintfWithLoop() {
 
 // to make programs simpler, we can just use the "%v" format code to insert values
 // The v code handles ints, bools, strings and other values. It makes Printf calls easier to write and read
-func usingTheVCode()  {
+func UsingTheVCode()  {
     result := true 
     name := "Spark" 
     size := 2000

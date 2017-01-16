@@ -1,10 +1,10 @@
-package main
+package basic
 
 import (
 	"fmt"
 )
 
-func simpleForLoop() {
+func SimpleForLoop() {
 	i := 1
 	for i <= 10 {
 		fmt.Printf("%d ", i)
@@ -13,14 +13,14 @@ func simpleForLoop() {
 	fmt.Println()
 }
 
-func fullForLoop() {
+func FullForLoop() {
     for index := 0; index < 10; index++ {
         fmt.Printf("%v ", index)
     }
     fmt.Println();
 }
 
-func simpleIfElse()  {
+func SimpleIfElse()  {
     for index := 1; index <= 10; index++ {
         if index % 2 == 0 {
             fmt.Println(index, "is even");
@@ -30,7 +30,7 @@ func simpleIfElse()  {
     }
 }
 
-func simpleSwitch()  {
+func SimpleSwitch()  {
     for i := 1; i <= 10; i++ {        
         switch i {
         case 1:
