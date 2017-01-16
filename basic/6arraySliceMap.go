@@ -1,8 +1,8 @@
-package main
+package basic
 
 import "fmt"
 
-func initArray() {
+func InitArray() {
 	var x [5]int
 	x[0] = 98
 	x[1] = 93
@@ -26,7 +26,7 @@ func initArray() {
 	fmt.Println(z)
 }
 
-func usingArrLen() {
+func UsingArrLen() {
 	var x [5]float64
 	x[0] = 98
 	x[1] = 93
@@ -42,7 +42,7 @@ func usingArrLen() {
 	//to convert between types, you use the type name like a function
 }
 
-func theRangeKeyword() {
+func TheRangeKeyword() {
 	var x [5]float64
 	x[0] = 98
 	x[1] = 93
@@ -64,7 +64,7 @@ func theRangeKeyword() {
 
 }
 
-func initSimpleSlice() {
+func InitSimpleSlice() {
 
 	//formal way to declare a slice
 	fmt.Println("Formal way to declare a slice")
@@ -94,7 +94,7 @@ func initSimpleSlice() {
 	*/
 }
 
-func basicSliceOperations() {
+func BasicSliceOperations() {
 
 	//indexing like working with array
 
@@ -112,7 +112,7 @@ func basicSliceOperations() {
 	fmt.Println(slice2)     // output: [1, 2, 3]
 }
 
-func simpleMapInitAndLookup() {
+func SimpleMapInitAndLookup() {
 
 	fmt.Println("\nFormal way to declare a map")
 	var x map[string]int
@@ -139,9 +139,40 @@ func simpleMapInitAndLookup() {
 	fmt.Println("Technically, a map returns the zero value for the value type\n",
 		"(which for strings is the empty string)")
 
+	fmt.Println("\nAnother way to initialize a map")
+	elements := map[string]map[string]string{
+		"H": map[string]string{
+			"name":  "Hydrogen",
+			"state": "gas",
+		},
+		"He": map[string]string{
+			"name":  "Helium",
+			"state": "gas",
+		},
+		"Li": map[string]string{
+			"name":  "Lithium",
+			"state": "solid",
+		},
+		"Be": map[string]string{
+			"name":  "Beryllium",
+			"state": "solid",
+		},
+		"B": map[string]string{
+			"name":  "Boron",
+			"state": "solid",
+		},
+		"C": map[string]string{
+			"name":  "Carbon",
+			"state": "solid",
+		},
+	}
+	fmt.Println(elements)
+	element := elements["He"];
+	fmt.Println("The element \"" + element["name"] + "\" is in \"" + element["state"] + "\" state")
+
 }
 
-func checkingMapLookup()  {
+func CheckingMapLookup() {
 	names := make(map[string]string)
 	names["name1"] = "Henry"
 	names["name2"] = "Tom"
@@ -150,28 +181,31 @@ func checkingMapLookup()  {
 	fmt.Println("\nAccessing an element of a map can return two values instead of just one")
 
 	value, ok := names["name1"]
-	fmt.Println(value,ok) //output: Henry true
+	fmt.Println(value, ok) //output: Henry true
 
 	value, ok = names["wrongKey"]
-	fmt.Println(value,ok) //output: empty string "", false
+	fmt.Println(value, ok) //output: empty string "", false
 
 	fmt.Println("\nA special way in Go to check if an element corresponding \n" +
-	 			"to a given key is in a map")
+		"to a given key is in a map")
 
-	//this is just a closure (function)	that check if a key/value pair exists in a given map		
+	//this is just a closure (function)	that check if a key/value pair exists in a given map
+	//Go doesn't have nested function, only function literal (i.e. closure) like this
 	checkIfKeyExists := func(theMap map[string]string, givenKey string) {
 		if val, yes := theMap[givenKey]; yes {
-			fmt.Println("The key \"" + givenKey + "\" exits in the map with the corresponding value:", val)
+			fmt.Println("The key \""+givenKey+
+				"\" exits in the map with the corresponding value:", val)
 		} else {
-			fmt.Println("The key \"" + givenKey + "\" doesn't exist in the map, no corresponding value")
+			fmt.Println("The key \"" + givenKey +
+				"\" doesn't exist in the map, no corresponding value")
 		}
-	}	
+	}
 
 	checkIfKeyExists(names, "name1")
 	checkIfKeyExists(names, "wrongKey")
 }
 
-func basicMapOperations()  {
+func BasicMapOperations() {
 	//https://blog.golang.org/go-maps-in-action
-	
+
 }

@@ -1,10 +1,10 @@
-package main
+package basic
 
 import (
 	"fmt"
 )
 
-func userInput1()  {
+func UserInput1()  {
     fmt.Print("Enter a number: ")
     var input float64
     fmt.Scanf("%f", &input)
